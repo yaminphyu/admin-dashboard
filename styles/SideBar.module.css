@@ -1,3 +1,29 @@
 .wrapper {
-    @apply relative h-screen overflow-auto bg-slate-500;
+    @apply relative h-screen overflow-auto flex flex-col bg-primary box-border;
+}
+
+.header,
+.personal {
+    @apply border-b-[1px] border-slate-500 w-full h-[58px] flex justify-start items-center p-3 box-border gap-6;
+}
+
+.title,
+.account-user {
+    @apply text-slate-300 tracking-normal md:tracking-wide cursor-pointer text-lg md:text-xl;
+}
+
+.account-user {
+    @apply text-base font-semibold;
+}
+
+.search {
+    @apply w-full flex justify-start items-center p-3 mt-1;
+}
+
+.search-input {
+    @apply p-1 w-full rounded-sm bg-secondary border border-gray-400 focus:outline-none focus:border-slate-100 px-2 py-1 caret-slate-100;
+}
+
+.search-btn {
+    @apply absolute right-5 cursor-pointer text-slate-100;
 }
