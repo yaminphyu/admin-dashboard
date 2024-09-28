@@ -3,8 +3,15 @@ import React, { useEffect, useRef } from 'react';
 import styles from '../styles/SideBar.module.css';
 import Image from 'next/image';
 import { RiSearchLine } from 'react-icons/ri';
+import { sideBars } from '@/config';
+import useCurrentRoute from '@/hook/useCurrentRoute';
+
 
 export default function SideBar({ setIsSidebar, isSidebar, width }) {
+  const router_name = useCurrentRoute();
+
+  console.log('router_name >>> ', router_name);
+  
   const sideBarRef = useRef(null);
 
   useEffect(() => {
@@ -37,10 +44,11 @@ export default function SideBar({ setIsSidebar, isSidebar, width }) {
         className={styles.header}
       >
         <Image 
-          src={'/logo.png?version=3'}
+          src={`/logo.png?version=${process.env.APP_VERSION}`}
           width={35}
           height={35}
           alt='logo'
+          className={`${isSidebar ? '' : 'mr-3'}`}
         />
         <h1 
           className={styles.title}
@@ -51,10 +59,11 @@ export default function SideBar({ setIsSidebar, isSidebar, width }) {
         className={styles.personal}
       >
         <Image 
-          src={'/person.png'}
+          src={`/person.png?version=${process.env.APP_VERSION}`}
           width={35}
           height={35}
           alt='person'
+          className={`${isSidebar ? '' : 'mr-3'}`}
         />
         <h1 
           className={styles['account-user']}
@@ -78,6 +87,26 @@ export default function SideBar({ setIsSidebar, isSidebar, width }) {
           </div>
         ) : null
       }
+      <ul className={styles.list}>
+        {
+          sideBars.map((item, key) => {
+            return (
+              <>
+                <li 
+                  key={key}
+                  className={`
+                    ${styles.item}
+                    ${item.path === router_name ? styles['item-active'] : ''}  
+                  `}
+                >
+                  <span className={`${styles.icon} ${isSidebar ? '' : 'mr-3'}`}>{item.icon}</span>
+                  {item.name}
+                </li>
+              </>
+            )
+          })
+        }
+      </ul>
     </section>
   )
 }

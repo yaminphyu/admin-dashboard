@@ -4,7 +4,7 @@
 
 .header,
 .personal {
-    @apply border-b-[1px] border-slate-500 w-full h-[58px] flex justify-start items-center p-3 box-border gap-6;
+    @apply border-b-[1px] border-slate-500 w-full h-[58px] flex justify-start items-center p-4 box-border gap-3;
 }
 
 .title,
@@ -21,9 +21,25 @@
 }
 
 .search-input {
-    @apply p-1 w-full rounded-sm bg-secondary border border-gray-400 focus:outline-none focus:border-slate-100 px-2 py-1 caret-slate-100;
+    @apply w-full rounded-sm bg-secondary border border-gray-400 focus:outline-none focus:border-slate-100 p-2 caret-slate-100 text-sm;
 }
 
 .search-btn {
     @apply absolute right-5 cursor-pointer text-slate-100;
+}
+
+.list {
+    @apply list-none w-full flex flex-col justify-start items-center px-3 mt-1;
+}
+
+.item {
+    @apply w-full flex justify-start items-center p-2 gap-3 text-base text-slate-300 focus:text-slate-200 hover:text-slate-200 hover:bg-slate-500 focus:bg-slate-500 rounded-sm;
+}
+
+.item-active {
+    @apply bg-main text-slate-200;
+}
+
+.icon {
+    @apply !text-[28px];
 }

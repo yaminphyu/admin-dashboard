@@ -58,7 +58,7 @@ export default function NavBar({ setIsSidebar, isSidebar }) {
                   className={styles['bell-icon']} 
               />
               <div className='static'>
-                <select class={styles.langs}>
+                <select className={styles.langs}>
                   {
                     langs.map((item, key) => {
                       return (
