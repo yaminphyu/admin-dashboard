@@ -1,0 +1,26 @@
+.wrapper {
+    @apply fixed flex justify-between w-full border-2 border-red-300 px-2 py-1 bg-slate-50;
+}
+
+.left-side {
+    @apply flex justify-center items-center p-3 gap-8;
+}
+
+.align-icon,
+.search-icon,
+.message-icon,
+.bell-icon {
+    @apply text-xl cursor-pointer;
+}
+
+.left-side p {
+    @apply hidden sm:block text-slate-400 hover:text-slate-500 text-[15px] cursor-pointer;
+}
+
+.message-icon {
+    @apply !text-base;
+}
+
+.bell-icon {
+    @apply !text-[22px];
+}
