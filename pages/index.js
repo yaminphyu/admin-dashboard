@@ -6,21 +6,21 @@ import useWindowDimension from "@/hook/useWindowDimension";
 export default function Home() {
   const { width } = useWindowDimension();
 
-  const [ isSiebar, setIsSiebar ] = useState(true);
+  const [ isSidebar, setIsSidebar ] = useState(true);
 
   useEffect(() => {
-    width < 640 && setIsSiebar(false);
+    width < 640 && setIsSidebar(false);
   }, []);
 
   return (
     <div>
       <NavBar
-        setIsSiebar={setIsSiebar}
-        isSiebar={isSiebar}
+        setIsSidebar={setIsSidebar}
+        isSidebar={isSidebar}
       />
       <SideBar 
-        setIsSiebar={setIsSiebar}
-        isSiebar={isSiebar} 
+        setIsSidebar={setIsSidebar}
+        isSidebar={isSidebar} 
         width={width} 
       />
     </div>

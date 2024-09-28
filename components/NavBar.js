@@ -12,7 +12,7 @@ const langs = [
   { key: 'th', value: 'TH'},
 ]
 
-export default function NavBar({ setIsSiebar, isSiebar }) {
+export default function NavBar({ setIsSidebar, isSidebar }) {
   const [ isSearch, setIsSearch ] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export default function NavBar({ setIsSiebar, isSiebar }) {
       {
         isSearch ? (
           <div className={styles['search-container']}>
-            <div className={`${styles['search-box']} ${ isSiebar ? 'ml-0 sm:ml-[250px]' : 'ml-0 sm:ml-[70px]' }`}>
+            <div className={`${styles['search-box']} ${ isSidebar ? 'ml-0 sm:ml-[250px]' : 'ml-0 sm:ml-[70px]' }`}>
               <input 
                 type="text"
                 placeholder='Search'
@@ -40,8 +40,8 @@ export default function NavBar({ setIsSiebar, isSiebar }) {
           <>
             <div className={styles['left-side']}>
               <LuAlignJustify 
-                  className={`${styles['align-icon']} ${ isSiebar ? 'ml-0 sm:ml-[250px]' : 'ml-0 sm:ml-[70px]' }`}
-                  onClick={() => setIsSiebar(!isSiebar)}
+                  className={`${styles['align-icon']} ${ isSidebar ? 'ml-0 sm:ml-[250px]' : 'ml-0 sm:ml-[70px]' }`}
+                  onClick={() => setIsSidebar(!isSidebar)}
               />
               <p>Home</p>
               <p>Contact</p>

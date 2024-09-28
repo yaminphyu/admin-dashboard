@@ -4,7 +4,7 @@ import styles from '../styles/SideBar.module.css';
 import Image from 'next/image';
 import { RiSearchLine } from 'react-icons/ri';
 
-export default function SideBar({ setIsSiebar, isSiebar, width }) {
+export default function SideBar({ setIsSidebar, isSidebar, width }) {
   const sideBarRef = useRef(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function SideBar({ setIsSiebar, isSiebar, width }) {
       if (sideBarRef.current && !sideBarRef.current.contains(event.target)) {
         console.log("Clicked outside of the div!");
         // Add your custom logic here
-        setIsSiebar(!isSiebar);
+        setIsSidebar(!isSidebar);
       }
     };
 
@@ -30,7 +30,7 @@ export default function SideBar({ setIsSiebar, isSiebar, width }) {
 
   return (
     <section 
-      className={`${styles.wrapper} ${ isSiebar ? 'w-[250px]' : 'w-0 sm:w-[70px]' }`}
+      className={`${styles.wrapper} ${ isSidebar ? 'w-[250px]' : 'w-0 sm:w-[70px]' }`}
       ref={sideBarRef}
     >
       <div
@@ -40,6 +40,7 @@ export default function SideBar({ setIsSiebar, isSiebar, width }) {
           src={'/logo.png?version=3'}
           width={35}
           height={35}
+          alt='logo'
         />
         <h1 
           className={styles.title}
@@ -53,25 +54,30 @@ export default function SideBar({ setIsSiebar, isSiebar, width }) {
           src={'/person.png'}
           width={35}
           height={35}
+          alt='person'
         />
         <h1 
           className={styles['account-user']}
           onClick={() => alert('hello world')}
         >Alexander Pierce</h1>
       </div>
-      <div
-        className={styles.search}
-      >
-        <input 
-          type="text" 
-          placeholder='Search' 
-          className={styles['search-input']}
-        />
-        <RiSearchLine 
-          className={styles['search-btn']} 
-          onClick={() => alert('Searching')}
-        />
-      </div>
+      {
+        isSidebar ? (
+          <div
+            className={styles.search}
+          >
+            <input 
+              type="text" 
+              placeholder='Search' 
+              className={styles['search-input']}
+            />
+            <RiSearchLine 
+              className={styles['search-btn']} 
+              onClick={() => alert('Searching')}
+            />
+          </div>
+        ) : null
+      }
     </section>
   )
 }
